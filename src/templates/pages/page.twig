@@ -1,0 +1,63 @@
+{% extends '../layouts/default.twig' %}
+{% set head_title = 'Sample Page' %}
+{% set body_class = '' %}
+{% set menu_active = 'sample-page' %}
+
+{% block page %}
+
+  <style>
+    /* Some inline styling for the demo purpose */
+    .demo {
+      padding: 4rem 0;
+    }
+    .section {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid #ccc;
+    }
+    .section-title {
+      color: rgba(0,0,0,.65);
+    }
+    .section-title small {
+      display: block;
+    }
+    pre {
+      font-size: .875rem;
+      margin: 0;
+    }
+    .highlight {
+      background-color: #f8f9fa;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-top: 1px solid #eee;
+    }
+    code.hljs {
+      background-color: transparent;
+    }
+  </style>
+
+  {% include '../../modules/navbar/navbar.twig' %}
+
+  <div class="demo" data-router-wrapper>
+
+    <div class="container" data-router-view="page1">
+        <h1>Page 1</h1>
+        <p>Bacon ipsum dolor sit amet tenderloin salami pig, fatback pastrami ham hock shoulder bacon t-bone pork meatball. Pancetta ham turkey shankle turducken jerky. Jowl spare ribs short ribs andouille tongue shoulder. Rump shoulder cow turducken, salami filet mignon ham sausage pancetta pork prosciutto brisket short ribs boudin. Shoulder short ribs andouille swine venison ham hock.</p>
+    </div>
+
+  </div>
+  {% include '../components/footer.twig' %}
+
+  <!-- https://highlightjs.org/ -->
+  <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
+
+{% endblock %}
